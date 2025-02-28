@@ -10,7 +10,3 @@ def Player(sName):
     print("\nWelcome to the Soccer Tournament! \n\nThis is a game to generate random scores for a women's soccer tournament. \n\nPlease enter information as you are prompted, and we will discover the results of the tournament together!")
     return (sName)
 
-sName = input("What is your name? ")
-sName = Player(sName)
-
-

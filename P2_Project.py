@@ -19,7 +19,7 @@ if option == 1 :
     #function 3
 
 if option == 2 :
-    bOutcome = playGame("josh", "Knight")
+    bOutcome = playGame()
 
     #create an if statement to keep track of wins and losses
     if bOutcome == True :

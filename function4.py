@@ -3,7 +3,7 @@
 
 import random
 
-def playGame(sHomeTeam, sAwayTeam):
+def playGame(sHomeTeam, sAwayTeam, bOutcome = False):
 
     iHomeScore = random.randrange(0,10)
     iAwayScore = random.randrange(0,10)
@@ -18,4 +18,8 @@ def playGame(sHomeTeam, sAwayTeam):
 
     print("Final score: " + sHomeTeam + ": " + sHomeScore + ". " + sAwayTeam + ": " + sAwayScore + ".")
 
-    return "W" if iHomeScore > iAwayScore else "L"
+    #create an if statement that returns true or false to keep track of wins and losses.
+    if iHomeScore > iAwayScore :
+        return True
+    else :
+        return False

@@ -1,34 +1,52 @@
 # Caleb Caten, Dakota Dowd, Isaac Pratte, Josh Knight Lincoln Adams
+# Plays the women's soccer season from Assignment 4 using imported custom functions
 
-# Imports Custom Functions
-from Introduction_Function import Player
+# Importing custom functions
+from Introduction_Function import playerIntro
 from josh_funct5 import displayRecord
 from Caleb_menu_function import menu
 from function4 import playGame
+from teamlist import gameSelect
 
 # Welcome: Requests the user's name and displays an introductory message
-sName = input("What is your name? ")
-sName = Player(sName)
+print()
+sName = input("What is your name?: ")
+sName = playerIntro(sName)
 
-option = 0
-wins = 0
-losses = 0
-menu()
+# Initializing variables
+iOption = 0
+iWins = 0
+iLosses = 0
+sHomeTeam = None
+sAwayTeam = None
 
-if option == 1 :
-    #function 3
+# Displaying menu and prompting for user input
+iOption = menu()
 
-if option == 2 :
-    bOutcome = playGame()
+# While loop to keep the program running until the user chooses to exit
+# If statements to determine what the user wants to do
+while iOption != 4 :
 
-    #create an if statement to keep track of wins and losses
-    if bOutcome == True :
-        wins = wins + 1
-    if bOutcome == False :
-        losses = losses + 1
+    if iOption == 1 : # Display list of teams, select home team, and select away team
 
-if option == 3 :
-    displayRecord(wins, losses, sHomeTeam)
+        if sHomeTeam is None : # If statement to check if home team has been selected, if not, select home team
+            sHomeTeam, sAwayTeam = gameSelect()
+        else :
+            _, sAwayTeam = gameSelect(sHomeTeam) # Otherwise only selects away team
 
-if option == 4 :
-    print("Exiting the game, see you next time!")
+    elif iOption == 2 :
+
+        bOutcome = playGame(sHomeTeam, sAwayTeam) # Call the function to play the game
+
+        if bOutcome == True : # If statement to keep track of wins and losses
+            iWins = iWins + 1
+        if bOutcome == False :
+            iLosses = iLosses + 1
+
+    elif iOption == 3 : # Display the final record
+        displayRecord(iWins, iLosses, sHomeTeam)
+
+    else :
+        print("Exiting the game, see you next time!") # Exit the program
+
+    iOption = menu() # Display the menu again

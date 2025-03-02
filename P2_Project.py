@@ -10,8 +10,7 @@ from teamlist import gameSelect
 
 # Welcome: Requests the user's name and displays an introductory message
 print()
-sName = input("What is your name?: ")
-sName = playerIntro(sName)
+sName = playerIntro()
 
 # Initializing variables
 iOption = 0

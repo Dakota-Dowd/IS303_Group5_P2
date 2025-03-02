@@ -32,18 +32,32 @@ def gameSelect(lstTeams = None) :
             print(f"{iTeamNumber} : {iCount}\n")
             iTeamNumber += 1
     
-    printList()
-
-    iTeamSelect = int(input('Please select the home team by typing its number (Example: "3"): '))
-    iTeamSelect -= 1
-    sHomeTeam = lstTeams.pop(iTeamSelect)
-    print(f"\nAs the home team, you have selected {sHomeTeam}.\n")
+    # Select home team
+    while True:
+        printList()
+        try:
+            iTeamSelect = int(input('Please select the home team by typing its number (Example: "3"): '))
+            if iTeamSelect < 1 or iTeamSelect > len(lstTeams):
+                print("Invalid selection. Please choose a valid team number.")
+            else:
+                sHomeTeam = lstTeams.pop(iTeamSelect - 1)
+                print(f"\nAs the home team, you have selected {sHomeTeam}.\n")
+                break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
     
-    printList()
-
-    iTeamSelect = int(input('Please select the away team by typing its number (Example: "3"): '))
-    iTeamSelect -= 1
-    sAwayTeam = lstTeams.pop(iTeamSelect)
-    print(f"\nAs the away team, you have selected {sAwayTeam}.\n")
+    # Select away team
+    while True:
+        printList()
+        try:
+            iTeamSelect = int(input('Please select the away team by typing its number (Example: "3"): '))
+            if iTeamSelect < 1 or iTeamSelect > len(lstTeams):
+                print("Invalid selection. Please choose a valid team number.")
+            else:
+                sAwayTeam = lstTeams.pop(iTeamSelect - 1)
+                print(f"\nAs the away team, you have selected {sAwayTeam}.\n")
+                break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
     return sHomeTeam, sAwayTeam

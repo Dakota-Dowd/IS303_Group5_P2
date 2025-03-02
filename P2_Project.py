@@ -5,30 +5,32 @@ from Introduction_Function import Player
 from josh_funct5 import displayRecord
 from Caleb_menu_function import menu
 from function4 import playGame
+from teamlist import gameSelect
 
 # Welcome: Requests the user's name and displays an introductory message
 sName = input("What is your name? ")
 sName = Player(sName)
 
-option = 0
-wins = 0
-losses = 0
-menu()
+iOption = 0
+iWins = 0
+iLosses = 0
 
-if option == 1 :
-    #function 3
+iOption = menu()
 
-if option == 2 :
-    bOutcome = playGame()
+while iOption != 4 :
+    if iOption == 1 :
+        sHomeTeam, sAwayTeam = gameSelect()
+    elif iOption == 2 :
+        bOutcome = playGame(sHomeTeam, sAwayTeam)
 
-    #create an if statement to keep track of wins and losses
-    if bOutcome == True :
-        wins = wins + 1
-    if bOutcome == False :
-        losses = losses + 1
+        #create an if statement to keep track of wins and losses
+        if bOutcome == True :
+            iWins = iWins + 1
+        if bOutcome == False :
+            iLosses = iLosses + 1
+    elif iOption == 3 :
+        displayRecord(iWins, iLosses, sHomeTeam)
+    else :
+        print("Exiting the game, see you next time!")
 
-if option == 3 :
-    displayRecord(wins, losses, sHomeTeam)
-
-if option == 4 :
-    print("Exiting the game, see you next time!")
+    iOption = menu()

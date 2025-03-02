@@ -4,12 +4,11 @@
 # Define menu funciton
 def menu() :
     iOption = 0
-    while iOption not in [1, 2, 3, 4] :
-    
-        print("\n\n")    
+    while iOption not in [1, 2, 3, 4] :  
         print("     Menu: \n  1. Show list of teams. \n  2. Play the game. \n  3. Display the final record. \n  4. Exit program.")
 
         try :
+            print()
             iOption = int( input("Please choose an option.  "))
             if iOption not in [1, 2, 3, 4] :
                 print("Sorry, please enter a number between 1 and 4. ")
